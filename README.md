@@ -57,9 +57,9 @@ const shuffle = require('carret/shuffle)
 
 ### Equivalent
 
-#### Formats
-
 Function used to get the equivalent of a `index` in the form of the entered `charset`.
+
+#### Formats
 
 **`equivalent(index, charset) : string`**
 
