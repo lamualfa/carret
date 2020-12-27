@@ -50,7 +50,7 @@ const { shuffle } = require('carret');
 or if you want to import only specific function to reduce the bundle size, please import like this:
 
 ```js
-const shuffle = require('carret/shuffle)
+const shuffle = require('carret/shuffle')
 ```
 
 ## Utilities
