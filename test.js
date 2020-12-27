@@ -14,32 +14,36 @@ describe('equivalent', () => {
   });
 });
 
+function mockRandomNumber(expectNumber, min, max, totalTest) {
+  return () => {
+    let isReached;
+
+    while ((totalTest -= 1)) {
+      const random = randomNumber(min, max);
+      if (random === expectNumber) {
+        isReached = true;
+        break;
+      }
+    }
+
+    expect(isReached).toBe(true);
+  };
+}
+
 describe('randomNumber', () => {
   const min = 0;
   const max = 100;
-  const totalTestProb = 1000;
+  const totalTest = 1000;
 
-  it(`has inclusive min in ${totalTestProb} calls`, () => {
-    let testCount = totalTestProb;
+  it(
+    `is inclusive min result reached in ${totalTest} calls`,
+    mockRandomNumber(min, min, max, totalTest)
+  );
 
-    while ((testCount -= 1)) {
-      const random = randomNumber(min, max);
-
-      if (random === min) break;
-      else if (totalTestProb === 1) expect(random).toEqual(min);
-    }
-  });
-
-  it(`has inclusive max in ${totalTestProb} calls`, () => {
-    let testCount = totalTestProb;
-
-    while ((testCount -= 1)) {
-      const random = randomNumber(min, max);
-
-      if (random === max) break;
-      else if (totalTestProb === 1) expect(random).toEqual(max);
-    }
-  });
+  it(
+    `is inclusive max result reached in ${totalTest} calls`,
+    mockRandomNumber(max, min, max, totalTest)
+  );
 });
 
 describe('shuffle', () => {
