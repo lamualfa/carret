@@ -21,7 +21,7 @@ module.exports = function generateCharset(pattern, custom) {
   for (let i = 0; i < pattern.length; i += 1) {
     const symbol = pattern.substr(i, 1);
     const charset = symbol === 'c' && custom ? custom : base[symbol];
-    if (charset) result = `${result}${charset}`;
+    if (charset) result += charset;
   }
 
   return result;
