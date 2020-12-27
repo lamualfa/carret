@@ -2,7 +2,7 @@
   "name": "carret",
   "version": "1.0.0",
   "description": "The Collection of charset utilities.",
-  "main": "lib/index.js",
+  "main": "index.js",
   "scripts": {
     "build": "babel src -d dist",
     "test": "jest --ci --coverage && codecov",
