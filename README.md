@@ -1,6 +1,6 @@
 [![NPM Version](https://badgen.net/npm/v/carret?icon=npm)](https://www.npmjs.com/package/carret)
 [![Github License](https://badgen.net/github/license/lamualfa/carret?color=purple&label=license)](https://github.com/lamualfa/carret/blob/master/LICENSE)
-[![CI](https://github.com/lamualfa/carret/workflows/CI/badge.svg)](https://github.com/lamualfa/carret/actions)
+![CI](https://github.com/lamualfa/carret/workflows/CI/badge.svg)
 [![Maintainability](https://api.codeclimate.com/v1/badges/3fc685eeb43acfed16aa/maintainability)](https://codeclimate.com/github/lamualfa/carret/maintainability)
 [![Coverage](https://codecov.io/gh/lamualfa/carret/branch/master/graph/badge.svg?token=NZ6VHIHJJV)](https://codecov.io/gh/lamualfa/carret)
 
