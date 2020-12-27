@@ -1,6 +1,7 @@
 [![NPM Version](https://badgen.net/npm/v/carret?icon=npm)](https://www.npmjs.com/package/carret)
 [![Github License](https://badgen.net/github/license/lamualfa/carret?color=purple&label=license)](https://github.com/lamualfa/carret/blob/master/LICENSE)
 [![CI](https://github.com/lamualfa/carret/workflows/CI/badge.svg)](https://github.com/lamualfa/carret/actions)
+[![Maintainability](https://api.codeclimate.com/v1/badges/3fc685eeb43acfed16aa/maintainability)](https://codeclimate.com/github/lamualfa/carret/maintainability)
 [![Coverage](https://codecov.io/gh/lamualfa/carret/branch/master/graph/badge.svg?token=NZ6VHIHJJV)](https://codecov.io/gh/lamualfa/carret)
 
 # Carret
@@ -58,12 +59,12 @@ const shuffle = require('carret/shuffle)
 
 #### Formats
 
+Function used to get the equivalent of a `index` in the form of the entered `charset`.
+
 **`equivalent(index, charset) : string`**
 
 - `index` - Desired index value
 - `charset` - Target charset
-
-Function used to get the equivalent of a `index` in the form of the entered `charset`.
 
 #### Example
 
@@ -93,13 +94,13 @@ equivalent(6, '0123456789').padStart(4, '0');
 
 ### Generate Charset
 
+Generate charset using given pattern.
+
 #### Formats
 
 **`generateCharset(pattern, ?custom) : string`**
 
 - `pattern` - Pattern used to fill the charset
-
-Generate charset using given pattern.
 
 #### Example
 
@@ -136,14 +137,14 @@ generateCharset('ch', 'blabla');
 
 ### Random Number
 
+Generate random number between min(inclusive) and max(inclusive).
+
 #### Formats
 
 **`randomNumber(min, max) : number`**
 
 - `min` - Minimal random value will be generated (inclusive)
 - `max` - Max random value will be generated (inclusive)
-
-Generate random number between min(inclusive) and max(inclusive).
 
 #### Example
 
@@ -162,13 +163,13 @@ randomNumber(0, 8);
 
 ### Shuffle
 
+Shuffle the entered charset.
+
 #### Formats
 
 **`shuffle(charset) : string | Array<string>`**
 
 - `charset` - Target charset
-
-Shuffle the entered charset.
 
 #### Example
 
