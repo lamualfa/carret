@@ -1,0 +1,31 @@
+{
+  "name": "carret",
+  "version": "1.0.0",
+  "description": "The Collection of charset utilities.",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "babel src -d dist",
+    "test": "jest --ci --coverage && codecov",
+    "local:test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lamualfa/carret.git"
+  },
+  "keywords": [
+    "charset",
+    "random",
+    "shuffle",
+    "generator"
+  ],
+  "author": "Laode Muhammad Al Fatih",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/lamualfa/carret/issues"
+  },
+  "homepage": "https://github.com/lamualfa/carret#readme",
+  "devDependencies": {
+    "codecov": "^3.8.1",
+    "jest": "^26.6.3"
+  }
+}
