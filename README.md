@@ -6,51 +6,71 @@
 
 # Carret
 
-The Collection of charset utilities or helpers with zero dependencies.
+The collections of lightweight utilities to make your life easier 🌸.
 
 **Advantages**
 
-- 100% Test Coverage
-- Zero Dependencies
-- Cross Browser Support
-- Blazing Fast
+- ☑️ 100% Test Coverage
+- 📦 Zero Dependencies
+- 🔀 Cross Browser Support
+- ⚡ Blazingly Fast
+- Typescript support by default
+- Support CommonJS, UMD, ESM and Modern JS format.
 - Use native `for` loop instead `forEach` or `map` method
 
 ## Quick Start
 
 - [Installation](#installation)
 - [Usage](#usage)
-  - [Import All](#import-all)
-  - [Import Specific](#import-specific)
+  - [ESM](#esm)
+  - [CommonJS](#commonjs)
+  - [CDN](#cdn)
 - [Utilities](#utilities)
   - [Equivalent](#equivalent)
-  - [Generate Charset](#generate-charset) - Generate a Charset with custom pattern
-  - [Random Number](#random-number) - Generate Random Number with Min & Max
-  - [Shuffle](#shuffle) - for String & Array
+  - [Omit by Index](#omit-by-index) - Remove specific element based on the index.
+  - [Generate Charset](#generate-charset) - Generate a Charset with custom pattern.
+  - [Random Number](#random-number) - Generate Random Number with Min & Max.
+  - [Shuffle](#shuffle) - Shuffle String or Array.
+  - [Pick Random](#pick-random) - Pick random elements from String or Array.
 
 ## Installation
 
+**NPM**
+
 ```bash
 npm install carret
-# Or
+```
+
+**Yarn**
+
+```bash
 yarn add carret
 ```
 
 ## Usage
 
-### Import All
-If you want to import a whole of the module, you can import like this:
+### ESM
 
 ```js
-const { shuffle } = require('carret');
+import { equivalent, omitByIndex } from 'carret'
 ```
 
-### Import Specific
+> Don't worry about unnecessary `import`. It's will removed automatically with Tree Shaking.
 
-or if you want to import only specific function to reduce the bundle size, please import like this:
+### CommonJS
 
 ```js
-const shuffle = require('carret/shuffle')
+const { equivalent, omitByIndex } = require('carret)
+```
+
+### CDN
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/carret@latest"></script>
+
+<script>
+  const { equivalent, omitByIndex } = carret
+</script>
 ```
 
 ## Utilities
@@ -69,26 +89,52 @@ Function used to get the equivalent of a `index` in the form of the entered `cha
 #### Example
 
 ```js
-equivalent(1502, '0123456789');
+equivalent(1502, '0123456789')
 // Output: 1502
 
-equivalent(2, 'abcdef');
+equivalent(2, 'abcdef')
 // Output: c
 
-equivalent(25, 'abcdefghijklmnopqrstuvwxyz');
+equivalent(25, 'abcdefghijklmnopqrstuvwxyz')
 // Output: z
 
-equivalent(26, 'abcdefghijklmnopqrstuvwxyz');
+equivalent(26, 'abcdefghijklmnopqrstuvwxyz')
 // Output: ba
 
 // With .padStart
-equivalent(6, '0123456789').padStart(4, '0');
+equivalent(6, '0123456789').padStart(4, '0')
 // Output: 0006
 ```
 
 #### Use Case
 
 - Generate Alphabet Increment ID like `aaaa`, `aaab`, `aaac`, etc.
+
+<hr>
+
+### Omit by Index
+
+Function used to remove specific element from a string or an array.
+
+#### Formats
+
+**`omitByIndex(target: string | string[], index: number) : string | string[]`**
+
+- `target` - Target to omit
+- `charset` - The index of element to be removed
+
+#### Example
+
+```js
+omitByIndex('0123456789', 5)
+// Output: 012346789
+
+omitByIndex('abcdefg', 2)
+// Output: abdefg
+
+omitByIndex(['a', 'b', 'c', 'd'], 3)
+// Output: ['a', 'b', 'c']
+```
 
 <hr>
 
@@ -106,19 +152,19 @@ Generate charset using given pattern.
 
 ```js
 // Alphabet (lower) & Alphabet (upper)
-generateCharset('aA');
+generateCharset('aA')
 // Output: abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
 
 // Numeric & Alphabet (lower)
-generateCharset('0a');
+generateCharset('0a')
 // Output: 0123456789abcdefghijklmnopqrstuvwxyz
 
 // Hex (lower)
-generateCharset('h');
+generateCharset('h')
 // Output: 0123456789abcdef
 
 // Hex (lower) + Custom
-generateCharset('ch', 'blabla');
+generateCharset('ch', 'blabla')
 // Output: blabla0123456789abcdef
 ```
 
@@ -149,13 +195,16 @@ Generate random number between min(inclusive) and max(inclusive).
 #### Example
 
 ```js
-randomNumber(0, 5);
+randomNumber(0, 5)
 // Output: 4
 
-randomNumber(0, 5);
+randomNumber(0, 5)
 // Output: 0
 
-randomNumber(0, 8);
+randomNumber(0, 5)
+// Output: 3
+
+randomNumber(0, 8)
 // Output: 8
 ```
 
@@ -174,16 +223,16 @@ Shuffle the entered charset.
 #### Example
 
 ```js
-shuffle('abc');
+shuffle('abc')
 // Output: bca
 
-shuffle('abcd');
+shuffle('abcd')
 // Output: dacb
 
-shuffle('0123456');
-// Output: 214653
+shuffle('0123456')
+// Output: 2146530
 
-shuffle(['a', 'b', 'c']);
+shuffle(['a', 'b', 'c'])
 // Output: ['c', 'a', 'b']
 ```
 
@@ -191,3 +240,32 @@ shuffle(['a', 'b', 'c']);
 
 - Shuffling the existing charset.
 - Shuffling the dataset.
+
+<hr>
+
+### Pick Random
+
+Pick random elements from String or Array uniquely.
+
+#### Formats
+
+**`pickRandom(target: string | string[], total?: number) : string | string[]`**
+
+- `target` - Target String or Array
+- `total` - Total elements to be picked from `target`
+
+#### Example
+
+```js
+pickRandom('abc', 2)
+// Output: ca
+
+pickRandom('abcd', 1)
+// Output: b
+
+pickRandom('0123456', 5)
+// Output: 21465
+
+pickRandom(['a', 'b', 'c'], 2)
+// Output: ['c', 'b']
+```

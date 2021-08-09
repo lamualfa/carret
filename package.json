@@ -1,18 +1,31 @@
 {
   "name": "carret",
-  "version": "1.0.0",
-  "description": "The Collection of charset utilities.",
-  "main": "index.js",
+  "version": "1.0.1",
+  "description": "The collections of lightweight utilities to make your life easier.",
+  "type": "module",
+  "source": "src/index.ts",
+  "exports": "./dist/index.modern.js",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.module.js",
+  "unpkg": "./dist/index.umd.js",
+  "files": [
+    "./dist/**/*"
+  ],
   "scripts": {
-    "build": "babel src -d dist",
-    "test": "jest --ci --coverage && codecov",
-    "local:test": "jest --coverage"
+    "build": "rimraf dist && microbundle",
+    "test:build": "rimraf dist && microbundle -i src/index.ts -o dist/index.cjs -f commonjs",
+    "test": "npm run test:build && jest --ci --coverage && codecov",
+    "local:test": "npm run test:build && jest --verbose --coverage"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lamualfa/carret.git"
   },
   "keywords": [
+    "utilities",
+    "lightweight",
+    "fast",
+    "agnostic",
     "charset",
     "random",
     "shuffle",
@@ -26,6 +39,8 @@
   "homepage": "https://github.com/lamualfa/carret#readme",
   "devDependencies": {
     "codecov": "^3.8.1",
-    "jest": "^26.6.3"
+    "jest": "^26.6.3",
+    "microbundle": "^0.13.3",
+    "rimraf": "^3.0.2"
   }
 }
