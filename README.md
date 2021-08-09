@@ -57,6 +57,16 @@ import { equivalent, omitByIndex } from 'carret'
 
 > Don't worry about unnecessary `import`. It's will removed automatically with Tree Shaking.
 
+**Warning**
+
+You might get an error if you using the import method above in project like Next.js. To solve the error, just import like this instead:
+
+```js
+import * as carret from 'carret'
+
+const { equivalent, omitByIndex } = carret
+```
+
 ### CommonJS
 
 ```js
