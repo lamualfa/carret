@@ -16,7 +16,7 @@
     "test:build": "rimraf dist && microbundle -i src/index.ts -o dist/index.cjs -f commonjs",
     "test": "npm run test:build && jest --ci --coverage && codecov",
     "local:test": "npm run test:build && jest --verbose --coverage",
-    "prepublish": ""
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
