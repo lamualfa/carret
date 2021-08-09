@@ -1,6 +1,6 @@
 {
   "name": "carret",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "The collections of lightweight utilities to make your life easier.",
   "type": "module",
   "source": "src/index.ts",
@@ -9,13 +9,14 @@
   "module": "./dist/index.module.js",
   "unpkg": "./dist/index.umd.js",
   "files": [
-    "./dist/**/*"
+    "dist"
   ],
   "scripts": {
     "build": "rimraf dist && microbundle",
     "test:build": "rimraf dist && microbundle -i src/index.ts -o dist/index.cjs -f commonjs",
     "test": "npm run test:build && jest --ci --coverage && codecov",
-    "local:test": "npm run test:build && jest --verbose --coverage"
+    "local:test": "npm run test:build && jest --verbose --coverage",
+    "prepublish": ""
   },
   "repository": {
     "type": "git",
