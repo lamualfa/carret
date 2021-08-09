@@ -1,6 +1,6 @@
 {
   "name": "carret",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "The collections of lightweight utilities to make your life easier.",
   "type": "module",
   "types": "./dist/index.d.ts",
