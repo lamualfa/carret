@@ -212,13 +212,13 @@ randomNumber(0, 8)
 
 ### Shuffle
 
-Shuffle the entered charset.
+Shuffle the entered target.
 
 #### Formats
 
-**`shuffle(charset) : string | Array<string>`**
+**`shuffle(target: string | string[]) : string | string[]`**
 
-- `charset` - Target charset
+- `target` - Target String or Array to be shuffled.
 
 #### Example
 
